@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Личный кабинет — заказы</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            color: #222;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            text-align: center;
+            color: #2a5942;
+            margin-top: 30px;
+        }
+        .orders-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 40px 10px;
+        }
+        .order-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(42,89,66,0.12);
+            padding: 25px 20px;
+            min-width: 250px;
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .order-title {
+            color: #2a5942;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .order-desc {
+            color: #555;
+            margin-bottom: 12px;
+            min-height: 40px;
+        }
+        .order-price {
+            color: #3a6b4f;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+        .order-category {
+            background: #e0f2e9;
+            color: #2a5942;
+            border-radius: 8px;
+            padding: 3px 10px;
+            font-size: 0.95em;
+            margin-bottom: 10px;
+        }
+        .order-date {
+            color: #888;
+            font-size: 0.95em;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Личный кабинет — ваши заказы</h2>
+    <div class="orders-container">
+        {% for order in orders %}
+        <div class="order-card">
+            <div class="order-title">{{ order[1] }}</div>
+            <div class="order-desc">{{ order[2] }}</div>
+            <div class="order-price">{{ order[3] }} тг.</div>
+            <div class="order-category">{{ order[4] }}</div>
+            <div class="order-date">{{ order[5] }}</div>
+        </div>
+        {% else %}
+        <p style="text-align:center; width:100%;">У вас пока нет заказов.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
+    
